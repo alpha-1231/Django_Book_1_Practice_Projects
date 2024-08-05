@@ -3,6 +3,8 @@ from django.views.generic import ListView,DetailView
 from django.views.generic.edit import CreateView ,UpdateView ,DeleteView
 from .models import Post
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
+from django.contrib.auth import logout
 # Create your views here.
 
 class BlogListView(ListView):
@@ -28,3 +30,6 @@ class BlogDeleteView(DeleteView):
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')
     
+def custom_logout(request):
+    logout(request)
+    return redirect('home')
