@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+
     {% block title %}
     
     {% endblock title %}
     <main>
+    <a class="navbar-brand" href="{% url 'home' %}">Newspaper</a>
     {% block content %}
     
     {% endblock content %}
